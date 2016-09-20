@@ -4,6 +4,8 @@
       <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
       <h4><%= pluralize(@apartment.errors.count, "error") %> prohibited this apartment from being saved:</h4>
 
+
+
       <ul>
       <% @apartment.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

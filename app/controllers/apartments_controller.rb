@@ -4,8 +4,12 @@ class ApartmentsController < ApplicationController
   # GET /apartments
   # GET /apartments.json
   def index
-    @apartments = Apartment.all
-
+    if params[:search].nil?
+      @apartments = Apartment.all
+    else
+      @apartments = Apartment.search(params[:search])
+    end
+    
     @pindrop = Gmaps4rails.build_markers(@apartments) do |apartment, marker|
       marker.lat apartment.latitude
       marker.lng apartment.longitude
