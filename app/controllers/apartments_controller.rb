@@ -102,6 +102,6 @@ class ApartmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def apartment_params
-      params.require(:apartment).permit(:address1, :address2, :city, :postal_code, :state, :country, :owner_id, :image)
+      params.require(:apartment).permit(:address1, :address2, :city, :postal_code, :state, :country, :owner_id, :image, :description)
     end
 end

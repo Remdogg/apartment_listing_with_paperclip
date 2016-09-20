@@ -34,6 +34,10 @@
   <dt>Owner:</dt>
   <dd><%= @apartment.owner.name %></dd>
 
+  <dt>Description:</dt>
+  <dd><%= @apartment.description %></dd>
+
+
 </dl>
 
 <!-- <div id="map">Google map will appear here...</div> -->
@@ -50,7 +54,7 @@ handler.buildMap({
     markers = handler.addMarkers(<%=raw @pindrop.to_json %>);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
-    handler.getMap().setZoom(12);
+    handler.getMap().setZoom(8);
   }
 );
 </script>
