@@ -9,13 +9,23 @@ class ApartmentsController < ApplicationController
     else
       @apartments = Apartment.search(params[:search])
     end
-    
+
     @pindrop = Gmaps4rails.build_markers(@apartments) do |apartment, marker|
       marker.lat apartment.latitude
       marker.lng apartment.longitude
       marker.infowindow apartment.full_address
     end
 
+  end
+
+  def map_location
+    @apartment = Apartment.find(params[:apartment_id])
+    @hash = Gmaps4rails.build_markers(@apartment) do |apartment, marker|
+      marker.lat apartment.latitude
+      marker.lng apartment.longitude
+      marker.infowindow apartment.address1
+    end
+    render json: @hash.to_json
   end
 
   # GET /apartments/1
